@@ -1,0 +1,13 @@
+{
+  "name": "@carolinedanslesnuages/lucie",
+  "version": "0.0.0",
+  "description": "Les données personnelles qui n'ont rien à faire dans un dépôt : numéro de sécurité sociale, IBAN, carte (clé vérifiée), e-mails et téléphones réels, exports de données. Valeurs masquées, sans dépendance.",
+  "type": "module",
+  "bin": { "lucie": "bin/lucie.mjs" },
+  "files": ["bin", "src", "action.yml"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs" },
+  "keywords": ["rgpd", "gdpr", "personal-data", "privacy", "pii", "github-action"],
+  "repository": { "type": "git", "url": "git+https://github.com/Carolinedanslesnuages/lucie.git" },
+  "license": "MIT"
+}

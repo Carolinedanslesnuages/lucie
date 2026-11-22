@@ -1,0 +1,24 @@
+name: Lucie — données personnelles
+description: "Cherche dans les lignes ajoutées par la PR les données personnelles : numéro de sécurité sociale, IBAN, carte bancaire (clé vérifiée), fichiers de données avec de vraies adresses (bloquent), e-mails et téléphones (avertissent). Les valeurs sont masquées dans le rapport."
+author: Carolinedanslesnuages
+
+inputs:
+  tout:
+    description: "Lire tout le dépôt, pas seulement les lignes ajoutées par la PR."
+    default: "false"
+
+runs:
+  using: composite
+  steps:
+    - name: Chercher les données personnelles
+      shell: bash
+      env:
+        BASE: ${{ github.event.pull_request.base.sha }}
+        EVERYTHING: ${{ inputs.tout }}
+      run: |
+        if [ "$EVERYTHING" = "true" ] || [ -z "$BASE" ]; then
+          node "${{ github.action_path }}/bin/lucie.mjs" --tout
+        else
+          git cat-file -e "$BASE^{commit}" 2>/dev/null || git fetch --no-tags --depth=1 origin "$BASE"
+          node "${{ github.action_path }}/bin/lucie.mjs" --base "$BASE"
+        fi
