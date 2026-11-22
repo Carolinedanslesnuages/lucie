@@ -35,6 +35,21 @@ journaux de la CI par exemple.
 ordinaire pour être repérés sans se tromper), les données dans les images ou les PDF, et ce qui
 est déjà dans l'historique (lancez `lucie --tout` sur une ancienne version pour vérifier).
 
+## À quoi ça ressemble
+
+Une branche qui ajoute un « client de test copié depuis la production » :
+
+```text
+⚠ src/export.js:6  adresse e-mail (j•••@orange.fr)
+    Si c'est une vraie personne, remplacez par une adresse d'exemple (prenom.nom@exemple.fr).
+✗ src/export.js:8  IBAN (FR76 •••• 189)
+    Retirez-le du dépôt et de l'historique git (il reste dans les anciens commits).
+
+2 constat(s) · 1 bloquant(s)
+```
+
+Le rapport ne recopie jamais la valeur trouvée : elle est masquée, même dans les journaux de la CI.
+
 ## Exceptions
 
 - Sur la ligne : `lucie: autorisé`, avec la raison (`// lucie: autorisé, adresse publique du projet`).
