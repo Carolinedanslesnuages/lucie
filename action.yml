@@ -1,5 +1,5 @@
 name: Lucie — données personnelles
-description: "Cherche dans les lignes ajoutées par la PR les données personnelles : numéro de sécurité sociale, IBAN, carte bancaire (clé vérifiée), fichiers de données avec de vraies adresses (bloquent), e-mails et téléphones (avertissent). Les valeurs sont masquées dans le rapport."
+description: "Cherche les données personnelles ajoutées par la PR : sécurité sociale, IBAN, carte, e-mails, téléphones. Valeurs masquées."
 author: Carolinedanslesnuages
 
 inputs:
@@ -22,3 +22,7 @@ runs:
           git cat-file -e "$BASE^{commit}" 2>/dev/null || git fetch --no-tags --depth=1 origin "$BASE"
           node "${{ github.action_path }}/bin/lucie.mjs" --base "$BASE"
         fi
+
+branding:
+  icon: eye-off
+  color: purple
