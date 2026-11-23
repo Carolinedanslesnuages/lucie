@@ -79,8 +79,8 @@ Seules les lignes ajoutées par la PR sont lues. `tout: "true"` lit tout le dép
 ## Sur votre ordinateur
 
 ```sh
-npx github:Carolinedanslesnuages/lucie           # les lignes ajoutées depuis main
-npx github:Carolinedanslesnuages/lucie --tout    # tout le dépôt
+npx @carolinedanslesnuages/lucie           # les lignes ajoutées depuis main
+npx @carolinedanslesnuages/lucie --tout    # tout le dépôt
 ```
 
 Sans dépendance. Rien n'est envoyé : Lucie lit seulement les fichiers du dossier courant.
